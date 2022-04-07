@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <group android:id="@+id/G1">
+        <item
+            android:id="@+id/editProfile"
+            android:icon="@drawable/ic_baseline_edit_24"
+            android:title="Edit Profile" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_baseline_error_24"
+            android:title="About" />
+        <item
+            android:id="@+id/feedback"
+            android:icon="@drawable/ic_baseline_feedback_24"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Settings" />
+        </group>
+
+        <group android:id="@+id/G2">
+        <item
+            android:id="@+id/quickTutorial"
+            android:icon="@drawable/ic_baseline_tutotrial_book_24"
+            android:title="Quick Tutorial" />
+        <item
+            android:id="@+id/joinOthers"
+            android:icon="@drawable/ic_baseline_join_others_24"
+            android:title="Join Others" />
+        <item
+            android:id="@+id/myItems"
+            android:icon="@drawable/ic_baseline_my_items_24"
+            android:title="My Items" />
+        <item
+            android:id="@+id/otherMembers"
+            android:icon="@drawable/ic_baseline_other_members_24"
+            android:title="Other Members" />
+        </group>
+</menu>

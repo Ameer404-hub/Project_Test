@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ScreenBGcolorSecondary"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/applogo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:text="D  P  M"
+        android:textColor="@color/TextColorPrimary"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Daily Purchases Manager"
+        android:textColor="@color/TextColorPrimary"
+        android:textSize="@dimen/TextsizeToolbar" />
+
+</LinearLayout>

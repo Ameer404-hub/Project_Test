@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ScreenBGcolorPrimary"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Project_Test"
+        android:background="@color/ToolbarColorPrimary"
+        app:titleTextColor="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/goBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/TextColorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_title"
+            android:text="Join Others"
+            android:layout_gravity="start"
+            android:fontFamily="@font/muli_black"
+            android:textSize="20sp"
+            android:textColor="@color/TextColorPrimary" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10sp"
+        android:padding="10sp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_baseline_other_members_24"
+            app:tint="@color/TextColorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Join your family members"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli"
+            android:textSize="@dimen/TextsizePrimary"
+            android:textColor="@color/TextColorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="60sp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/joinOthers"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter ID"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor"></com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/joinOthers_desc"
+            android:textAlignment="center"
+            android:layout_marginTop="20sp"
+            android:text="OR tap the menu icon at top right corner to share your ID with others"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli"
+            android:textSize="@dimen/TextsizePrimary"
+            android:textColor="@color/TextColorPrimary" />
+
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/loading_button"
+            android:text="Join"
+            android:textColor="@color/ButtonTextColorPrimary"
+            android:fontFamily="@font/muli_black"
+            android:textAllCaps="false"
+            android:textSize="@dimen/TextsizeButton"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:gravity="center"
+            android:letterSpacing="0.1"
+            app:spinning_bar_color="@color/ProgressbarInsidePrimary"
+            app:spinning_bar_padding="10dp"
+            app:spinning_bar_width="3dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

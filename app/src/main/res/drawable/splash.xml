@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color -->
+    <item android:drawable="@color/ScreenBGcolorSecondary"/>
+
+    <!-- Logo at the center of the screen -->
+    <item
+        android:drawable="@drawable/applogo"
+        android:height="130dp"
+        android:width="130dp"
+        android:gravity="center_horizontal"
+        android:top="286dp"/>
+</layer-list>

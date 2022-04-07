@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ScreenBGcolorSecondary"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        android:orientation="vertical"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:fontFamily="@font/muli"
+            android:gravity="center"
+            android:text="You can only update the Status here.\nTo Update other info, open 'My Items' from Home Navigation Menu"
+            android:textAllCaps="false"
+            android:textColor="@color/TextColorPrimary"
+            android:textSize="@dimen/TextsizePrimary" />
+
+        <LinearLayout
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/note"
+            android:layout_marginTop="30sp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="Item Name"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemStatus"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:hint="Item Status"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:boxStrokeWidthFocused="2dp"
+                android:focusable="false"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/showStatusDialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:text="Status here"
+                    android:textCursorDrawable="@drawable/color_cursor"></com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemQty"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:enabled="false"
+                android:hint="Item Quantity"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor"></com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemDesc"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:enabled="false"
+                android:hint="Item Description"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemPlaced"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:enabled="false"
+                android:hint="Placed by"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemPurchased"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:enabled="false"
+                android:hint="Purchased by"
+                android:textColorHint="@color/TextColorPrimary"
+                app:boxStrokeColor="@color/TextColorPrimary"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/TextColorPrimary"
+                app:startIconTint="@color/TextColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/ScreenBGcolorPrimary"
+                    android:fontFamily="@font/muli"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/color_cursor">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/updateItemBtn"
+            android:layout_below="@+id/fields"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/loading_button"
+            android:fontFamily="@font/muli_black"
+            android:letterSpacing="0.1"
+            android:text="Save Changes"
+            android:textAllCaps="false"
+            android:textColor="@color/ButtonTextColorPrimary"
+            android:textSize="@dimen/TextsizeButton"
+            app:spinning_bar_color="@color/ProgressbarInsidePrimary"
+            app:spinning_bar_padding="8dp"
+            app:spinning_bar_width="3dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

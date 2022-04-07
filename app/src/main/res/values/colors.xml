@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+
+    <color name="ScreenBGcolorPrimary">#FDFCFC</color>
+    <color name="ScreenBGcolorSecondary">#FFFFFF</color>
+
+    <color name="ButtonColorPrimary">#FFEB3B</color>
+    <color name="ButtonTextColorPrimary">#000000</color>
+    <color name="ToolbarColorPrimary">#FFEB3B</color>
+    <color name="ToolbarTextColorPrimary">#000000</color>
+
+    <color name="ButtonColorSecondary">#03A9F4</color>
+    <color name="ButtonTextColorSecondary">#FFFFFF</color>
+    <color name="ToolbarColoSecondary">#03A9F4</color>
+    <color name="ToolbarTextColorSecondary">#FFFFFF</color>
+
+    <color name="ProgressbarPrimary">#FFEB3B</color>
+    <color name="ProgressbarInsidePrimary">#000000</color>
+
+    <color name="ProgressbarSecondary">#03A9F4</color>
+    <color name="ProgressbarInsideSecondary">#FFFFFF</color>
+
+    <color name="TextColorPrimary">#000000</color>
+    <color name="TextColorSecondary">#FFFFFF</color>
+
+    <color name="WarningColor">#BA0000</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">@color/TextColorPrimary</color>
+</resources>

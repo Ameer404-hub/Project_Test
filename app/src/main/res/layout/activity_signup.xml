@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/ScreenBGcolorPrimary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:layout_marginTop="130sp"
+        android:text="Sign Up"
+        android:layout_gravity="start"
+        android:textColor="@color/TextColorPrimary"
+        android:textSize="48sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_marginTop="60sp">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/countrycodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_border"
+            android:fontFamily="monospace"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showFlag="true"
+            app:ccp_showFullName="true"
+            app:ccp_showNameCode="true"
+            app:ccp_textSize="@dimen/TextsizePrimary">
+
+        </com.hbb20.CountryCodePicker>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PhoneNumber"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countrycodes"
+            android:hint="Phone Number"
+            android:textColorHint="@color/TextColorPrimary"
+            app:boxStrokeColor="@color/TextColorPrimary"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/TextColorPrimary"
+            app:startIconDrawable="@drawable/ic_baseline_local_phone_24"
+            app:startIconTint="@color/TextColorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/muli"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:inputType="number"></com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/Signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PhoneNumber"
+            android:layout_marginTop="10sp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/loading_button"
+            android:text="Sign up"
+            android:textColor="@color/ButtonTextColorPrimary"
+            android:fontFamily="@font/muli_black"
+            android:textAllCaps="false"
+            android:textSize="@dimen/TextsizeButton"
+            android:letterSpacing="0.1"
+            app:spinning_bar_color="@color/ProgressbarInsidePrimary"
+            app:spinning_bar_padding="8dp"
+            app:spinning_bar_width="3dp"
+            android:onClick="validateUser"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Signup_btn"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:fontFamily="@font/muli"
+            android:gravity="center"
+            android:text="We will send an OTP to verify your\nphone number"
+            android:textAllCaps="false"
+            android:textColor="@color/TextColorPrimary"
+            android:textSize="@dimen/TextsizeSmall" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progBar"
+        android:layout_gravity="center"
+        android:background="@drawable/otp_progress_bar_bg"
+        android:visibility="invisible"
+        android:layout_marginTop="10sp"
+        android:elevation="8dp"
+        android:padding="5sp">
+        <ProgressBar
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminateTint="@color/ProgressbarInsidePrimary"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/applogo" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="D P M"
+                android:textColor="@color/TextColorPrimary"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Daily Purchases Manager"
+            android:layout_gravity="center"
+            android:textColor="@color/TextColorPrimary"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

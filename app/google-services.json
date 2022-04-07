@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811383713820",
+    "project_id": "daily-purchases-manager-1e54f",
+    "storage_bucket": "daily-purchases-manager-1e54f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811383713820:android:ca5fc30780f0596bc2efd9",
+        "android_client_info": {
+          "package_name": "com.example.project_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811383713820-rcvj8h1i5oqengv60mi8qkhc7dlplt07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu3c664rPd2ipgyYocVrAYFPxRpPLp_t4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811383713820-rcvj8h1i5oqengv60mi8qkhc7dlplt07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
