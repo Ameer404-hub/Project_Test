@@ -11,14 +11,15 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.project_test.Models.ItemData;
+import com.example.project_test.Models.OtherMembersAdapter;
 import com.example.project_test.Models.PurchasesListAdapter;
+import com.example.project_test.Models.UserSignupData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,103 +29,74 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class PurchaseList extends AppCompatActivity {
+public class OtherMembers extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    DatabaseReference referenceToItems, referenceToOthers, referenceToOM;
-    PurchasesListAdapter adapter;
-    ArrayList<ItemData> purchasesList;
+    DatabaseReference referenceToOthers, referenceToOM;
+    OtherMembersAdapter adapter;
+    ArrayList<UserSignupData> otherMembersList;
     ImageView backArrow;
     ProgressDialog message;
-    int myItemCount = 0, OtherItemCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_purchase_list);
+        setContentView(R.layout.activity_other_members);
 
-        referenceToItems = FirebaseDatabase.getInstance().getReference("User").
-                child(FirebaseAuth.getInstance().getUid()).child("Item Placed");
         referenceToOthers = FirebaseDatabase.getInstance().getReference("User").
                 child(FirebaseAuth.getInstance().getUid()).child("Other Members");
 
         backArrow = findViewById(R.id.goBack);
-        recyclerView = findViewById(R.id.purchasesListItems);
+
+        backArrow = findViewById(R.id.goBack);
+        recyclerView = findViewById(R.id.otherMemersList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        purchasesList = new ArrayList<>();
-        adapter = new PurchasesListAdapter(this, purchasesList);
+        otherMembersList = new ArrayList<>();
+        adapter = new OtherMembersAdapter(this, otherMembersList);
         recyclerView.setAdapter(adapter);
 
-        message = new ProgressDialog(PurchaseList.this);
+        message = new ProgressDialog(OtherMembers.this);
         message.setTitle("");
         message.setMessage("Loading...");
 
         if (!isConnected(this))
-            Toast.makeText(PurchaseList.this, "You're device is not connected to internet", Toast.LENGTH_LONG).show();
+            Toast.makeText(OtherMembers.this, "You're device is not connected to internet", Toast.LENGTH_LONG).show();
         else {
             message.show();
             message.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-            showPurchasesList();
+            showMembers();
         }
 
-        backArrow.setOnClickListener(view -> {
-            Intent goBack = new Intent(getApplicationContext(), HomeScreen.class);
-            startActivity(goBack);
-            finish();
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goBack = new Intent(getApplicationContext(), HomeScreen.class);
+                startActivity(goBack);
+                finish();
+            }
         });
     }
 
-    private void showPurchasesList() {
-        referenceToItems.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        ItemData items = ds.getValue(ItemData.class);
-                        purchasesList.add(items);
-                        myItemCount++;
-                    }
-                } else
-                    myItemCount = 0;
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PurchaseList.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+    private void showMembers() {
         referenceToOthers.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
+                if(snapshot.exists()){
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        long totalChildren = snapshot.getChildrenCount();
-                        String ID = ds.getKey();
-                        referenceToOM = FirebaseDatabase.getInstance().getReference("User")
-                                .child(ID).child("Item Placed");
+                        String ID = ds.getKey().toString();
+                        referenceToOM = FirebaseDatabase.getInstance().getReference("User").child(ID).child("ProfileInfo");
                         referenceToOM.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
-                                    for (DataSnapshot ds : snapshot.getChildren()) {
-                                        ItemData items = ds.getValue(ItemData.class);
-
-                                        if (purchasesList.contains(items.getName())) {
-                                        } else {
-                                            message.dismiss();
-                                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                                            purchasesList.add(items);
-                                            adapter.notifyDataSetChanged();
-                                        }
-                                    }
-                                } else {
-                                    OtherItemCount++;
-                                    if (OtherItemCount == totalChildren && myItemCount == 0)
-                                        Toast.makeText(PurchaseList.this, "Go Easy! Nothing to Purchase Right Now", Toast.LENGTH_SHORT).show();
+                                    UserSignupData Members = snapshot.getValue(UserSignupData.class);
+                                    message.dismiss();
+                                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                    otherMembersList.add(Members);
+                                }
+                                else {
                                     message.dismiss();
                                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                 }
@@ -133,26 +105,29 @@ public class PurchaseList extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-                                Toast.makeText(PurchaseList.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OtherMembers.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
                             }
                         });
                     }
-                } else {
-                    if (myItemCount == 0)
-                        Toast.makeText(PurchaseList.this, "Go Easy! Nothing to Purchase Right Now", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     message.dismiss();
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    Toast.makeText(OtherMembers.this, "You haven't joined anybody :(", Toast.LENGTH_SHORT).show();
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PurchaseList.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(OtherMembers.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
 
-    private boolean isConnected(PurchaseList CheckInternet) {
+    private boolean isConnected(OtherMembers CheckInternet) {
         ConnectivityManager connectivityManager = (ConnectivityManager) CheckInternet.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo wifiCon = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         NetworkInfo mobileCon = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
