@@ -167,6 +167,7 @@ public class JoinOthers extends AppCompatActivity {
             case R.id.shareLink:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "User ID");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, joinLink);
                 startActivity(Intent.createChooser(shareIntent, "Share Via"));
                 break;

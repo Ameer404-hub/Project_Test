@@ -21,7 +21,8 @@
             android:name=".PurchaseList"
             android:noHistory="true" />
         <activity
-            android:name=".EditProfileActivity" />
+            android:name=".EditProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".VerifyOTP"
             android:windowSoftInputMode="adjustPan" />

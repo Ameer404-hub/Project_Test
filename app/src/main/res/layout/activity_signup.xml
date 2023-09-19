@@ -94,28 +94,11 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progBar"
-        android:layout_gravity="center"
-        android:background="@drawable/otp_progress_bar_bg"
-        android:visibility="invisible"
-        android:layout_marginTop="10sp"
-        android:elevation="8dp"
-        android:padding="5sp">
-        <ProgressBar
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:indeterminateTint="@color/ProgressbarInsidePrimary"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="95dp"
         android:orientation="vertical">
 
         <LinearLayout

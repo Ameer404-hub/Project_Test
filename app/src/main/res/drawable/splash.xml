@@ -6,8 +6,8 @@
     <!-- Logo at the center of the screen -->
     <item
         android:drawable="@drawable/applogo"
-        android:height="130dp"
-        android:width="130dp"
+        android:height="100dp"
+        android:width="100dp"
         android:gravity="center_horizontal"
         android:top="286dp"/>
 </layer-list>

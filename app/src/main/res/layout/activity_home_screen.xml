@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/ScreenBGcolorSecondary"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end">
+    tools:openDrawer="start">
 
     <include
         layout="@layout/activity_hs_content"

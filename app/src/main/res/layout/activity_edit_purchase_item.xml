@@ -190,9 +190,9 @@
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/updateItemBtn"
-            android:layout_below="@+id/fields"
             android:layout_width="215dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/fields"
             android:layout_centerInParent="true"
             android:layout_marginTop="50dp"
             android:background="@drawable/loading_button"
